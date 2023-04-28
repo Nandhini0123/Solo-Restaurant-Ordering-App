@@ -29,8 +29,24 @@
                 
             </div>
             <div id="total">
-                <h1>Total Price:</h1>
+                <h4>Total Price:</h4>
                 <h2 id="final-price"></h2>
+            </div>
+            <div class="btn">
+                <button id="purchase-btn">Complete Order</button>
+            </div>
+            <div id="modal" class="modal">
+                <h3> Enter Card Details</h3>
+                <form class="modal-inner">
+                    <input type="name" name="fullName" id="name" required placeholder="enter your name" aria-label="full Name" />
+                    <input type="number" name="cardNumber" required placeholder="enter card number" aria-label="card number" />
+                    <input type="number" name="cvv" required placeholder="enter CVV" aria-label="CVV" />
+                    <input type="submit" value="submit" class="pay-btn" id="pay-btn">
+                </form>
+
+            </div>
+            <div id="order-msg-box">
+                <p id="order-msg"></p>
             </div>
         </main>
        

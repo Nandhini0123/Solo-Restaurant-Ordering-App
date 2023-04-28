@@ -7,6 +7,7 @@ body {
     color: rgb(11, 135, 243);
     width:600px;
     background-color: rgb(243, 245, 247);
+    
 }
 
 
@@ -92,6 +93,7 @@ body {
 #order-heading{
     display:none;
     text-align: center;
+    background-color: rgb(243, 245, 247);
 }
 
 
@@ -117,11 +119,12 @@ body {
 
 }
 #total{
-    visibility: hidden;
+    /* visibility: hidden; */
     border-top: 2px solid black;
-    display:flex;
+    display:none;
     justify-content: space-between;
     font-size: 28px;
+    background-color: rgb(243, 245, 247);
 }
 
 #final-price{
@@ -129,3 +132,67 @@ body {
     align-items: center;
 }
 
+.btn{
+    text-align: center;
+}
+
+#purchase-btn{
+    display: none;
+    width: 508px;
+    height: 60px; 
+    font-size: 16px;
+    background-color: #16DB99;
+    margin: auto;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    color:azure;
+    border-style: none;
+}
+/* modal */
+#modal{
+    visibility: hidden;
+    position: fixed;
+    top: 30px;
+    left: 35px;
+    right: 30px;
+    /* margin: auto; */
+    width: 530px;
+    height: 540px;
+    border: black solid 1px;
+    padding:25px;
+    text-align: center;
+    background-color: #fff;
+}
+
+input{
+    margin-top: 20px; 
+    border: 1px solid #212529;
+    padding: 10px;
+    width: 100%;
+    height: 70px;
+    border-radius: 3px;
+}
+#pay-btn{
+    font-size: 20px;
+    width: 100%;
+    background-color: #16DB99;
+    color:white;
+    border-style: none;
+    margin-top: 25px;
+    height: 70px;
+}
+
+#order-msg-box{
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    color:#065F46;
+    width: 504px;
+    height: 120px;
+    background-color: #cdfaeb;
+    margin: 25px auto;
+}
+/* #order-msg{
+    
+} */
