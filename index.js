@@ -2,11 +2,14 @@ import { menuArray } from '/data.js'
 const menuCard = document.getElementById("menu-card")
 const addBtn = document.getElementById("add-btn")
 const orderBox = document.getElementById("order-box")
-let priceSelectedItem = document.getElementById("price-selected-item")
+// let priceSelectedItem = document.getElementById("price-selected-item")
 let finalPrice = document.getElementById("final-price")
 let priceOfEach = [];
 let orderedItem = [];
-
+let idOfItem =  [];
+let totalPrice  = '';
+let x;
+let fname;
 function getMenuHtml(){
     let menuHtml = '';
     menuArray.forEach(function(menu){
@@ -37,10 +40,18 @@ document.addEventListener('click',function(e){
  if(e.target.dataset.add){
    yourOrderBox(e.target.dataset.add)
    document.getElementById("order-heading").style.display="block";
-   document.getElementById("total").style.visibility="visible";
+   document.getElementById("total").style.display="flex";
+   document.getElementById("purchase-btn").style.display="block";
  }
  else if(e.target.dataset.remove){
    removeItem(e.target.dataset.remove)
+ }
+ else if(e.target.id === 'purchase-btn'){
+    paymentWindow()
+ }
+ else if(e.target.id === 'pay-btn'){
+    e.preventDefault()
+    orderconfirmation()
  }
 })
 
@@ -60,25 +71,25 @@ console.log(selectedItem)
                         <p id="price-selected-item">$ ${selectedItem.price}</p>
                    </div>`;
     orderedItem.push(addItem)
-    console.log(orderedItem)
+    // console.log(orderedItem)
+    priceOfEach.push(selectedItem.price)
+    console.log(priceOfEach)
+    idOfItem.push(selectedItem.id);
+    console.log("ids", idOfItem)
     orderBox.innerHTML = orderedItem
-    totalPriceCalc(selectedItem)
+    totalPriceCalc()
 }
 
+//UPDATE
 
-
-// FUNCTION TO CALCULATE TOTAL PRICE
-
-function totalPriceCalc(menu){
-priceOfEach.push(menu.price)
-console.log(priceOfEach)  
-let totalPrice = priceOfEach.reduce(calcTotalPrice);
-function calcTotalPrice(total,value){
-    return total + value;
+function update(){
+    orderedItem.splice(x, 1);
+    console.log("new order", orderedItem)
+    idOfItem.splice(x, 1);
+    orderBox.innerHTML = orderedItem;
+    priceOfEach.splice(x, 1);
+    totalPriceCalc();
 }
-finalPrice.innerHTML = `$ ${totalPrice}`;
-}
-
 // REMOVE FUNCTION
 
 function removeItem(menuId){
@@ -87,9 +98,48 @@ function removeItem(menuId){
    })[0]
 console.log(toRemoveItem)
 console.log(menuId)
-
-//    orderedItem.splice(0,1)
-//    orderBox.innerHTML = orderedItem
-   
+x = idOfItem.indexOf(Number(menuId));
+console.log("iindex", x)
+update();
+  
 }
 
+// FUNCTION TO CALCULATE TOTAL PRICE
+
+function totalPriceCalc(){ 
+    if(priceOfEach.length){
+    totalPrice = priceOfEach.reduce(calcTotalPrice);
+    function calcTotalPrice(total,value){
+        return total + value;
+    }}
+    else {
+        totalPrice = 0;
+    }
+    finalPrice.innerHTML = `$ ${totalPrice}`;
+    } 
+
+//FUNCTION PAYMENTWINDOW
+
+function paymentWindow(){
+    if(orderedItem.length) {
+    document.getElementById("modal").style.visibility="visible";
+    }
+    else {
+        document.getElementById("order-msg-box").style.visibility="visible";
+        document.getElementById("order-msg").innerHTML = "Your Cart is empty. Please add items";
+    }
+}
+
+//function orderconfirmation
+
+function orderconfirmation(){
+    document.getElementById("modal").style.visibility="hidden";
+    orderBox.innerHTML = '';
+    document.getElementById("order-heading").style.display="none";
+    document.getElementById("total").style.display="none";
+    document.getElementById("purchase-btn").style.display="none";
+    document.getElementById("order-msg-box").style.visibility="visible";
+    // fname = document.getElementById("name").value;
+    // console.log(fname)
+    document.getElementById("order-msg").innerHTML = "Thank You, your order is on the way" 
+}
