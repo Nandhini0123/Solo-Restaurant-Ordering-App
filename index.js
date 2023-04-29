@@ -133,6 +133,7 @@ function paymentWindow(){
     else {
         document.getElementById("order-msg-box").style.visibility="visible";
         document.getElementById("alert-msg").innerHTML = "Your Cart is empty. Please add items";
+        document.getElementById("order-msg").innerHTML = " ";
     }
 }
 
