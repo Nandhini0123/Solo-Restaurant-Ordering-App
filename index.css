@@ -6,29 +6,36 @@ body {
     font-family: 'Smythe', cursive;
     color: rgb(11, 135, 243);
     width:600px;
-    background-color: rgb(243, 245, 247);
-    
+    /* background-color: rgb(243, 245, 247);   */
+    background-color: #fcf9f9; 
+    border: 1px solid rgb(233, 231, 231);
 }
 
+main{
+    padding: 15px;
+}
+
+/* HERO IMAGE */
 
 .hero-image {
-    background-image: url("Images/burger.jpg");
+    background-image: url("Images/ferks-guare-KEZdWfYD-ow-unsplash\ 1.jpg");
     background-color: #cccccc; 
-    width: 600px;
+    width:600px;
     height: 160px; 
     background-repeat: no-repeat; 
-    background-size: contain;
-    position: relative;
+    background-size: cover; 
+    position: relative;     
 }
-
-
 
 .top-container{
     position: absolute;
     margin-top:40px;
     margin-left: 180px;
     margin-bottom: 40px;
+   
 } 
+
+/* MENU */
      
 .food-items{
     display:flex;
@@ -89,13 +96,19 @@ body {
     font-size:x-small;
     padding: 15px;
 }
+
 /******ORDER BOX *******/
+
 #order-heading{
     display:none;
     text-align: center;
-    background-color: rgb(243, 245, 247);
+    /* background-color: rgb(243, 245, 247); */
+    background-color: #fcf9f9;
 }
 
+#order-box, #total {
+    background-color: #fcf9f9;
+}
 
 .item-name-remove{
     display:flex;
@@ -118,6 +131,9 @@ body {
     align-self: center;
 
 }
+
+/* TOTAL PRICE */
+
 #total{
     /* visibility: hidden; */
     border-top: 2px solid black;
@@ -148,7 +164,7 @@ body {
     color:azure;
     border-style: none;
 }
-/* modal */
+/* modal PAYMENT WINDOW*/
 #modal{
     visibility: hidden;
     position: fixed;
@@ -182,6 +198,8 @@ input{
     height: 70px;
 }
 
+/* ORDER CONFIRMATION MSG */
+
 #order-msg-box{
     visibility: hidden;
     display: flex;
@@ -193,6 +211,3 @@ input{
     background-color: #cdfaeb;
     margin: 25px auto;
 }
-/* #order-msg{
-    
-} */
