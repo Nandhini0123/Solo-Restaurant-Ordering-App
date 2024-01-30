@@ -4,8 +4,8 @@ Scrimba - The Frontend Developer Carrer Path - Module 5 - Solo project - Restaur
 
 Overview : The app allows the user to do 
 a)View the menu list  
-b) Add items to order list 
-c) Remove items from the ordered list 
+b) Add items to cart
+c) Remove items from the cart
 d) Complete the purchase 
 e) Pay the total by entering the card details 
 f) Getting confirmation message
